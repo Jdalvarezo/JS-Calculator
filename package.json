@@ -1,0 +1,14 @@
+{
+  "name": "js-calculator",
+  "version": "1.0.0",
+  "description": "Simple calculator develop with web technologies",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Jhonatan Alvarez",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.0.0"
+  }
+}
