@@ -5,17 +5,18 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 600,
+    width: 382,
+    height: 676,
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   // remove application menu
   mainWindow.setMenu(null)
+  mainWindow.resizable = false;
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
