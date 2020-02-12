@@ -1,7 +1,12 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../webfonts/Roboto-Regular.ttf");
+  }
+
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Roboto";
     box-sizing: border-box;
 }
 
@@ -38,6 +43,12 @@ button {
     border: none;
     font-size: 18px;
     cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background-color: rgba(143, 143, 143, 0.2);
+    transition: 0.25s;
 }
 
 #btn0 {
@@ -50,11 +61,13 @@ button {
     color: #433104;
 }
 
+#btnEqual:hover {
+    background-color: #433104;
+    color: #FFC60C;
+    transition: 0.25s;
+}
+
 .opBtns {
     background-color: #1F1F1F;
 }
 
-span {
-    display: block;
-    margin-top: -10px;
-}
