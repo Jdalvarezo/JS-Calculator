@@ -14,7 +14,7 @@ body {
     background-color: #131313;
 }
 
-input[type="number"] {
+input[type="text"] {
     display: block;
     width: 100%;
     border: none;
