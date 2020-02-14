@@ -1,5 +1,7 @@
+// add the functionality module for can use its functions
 const functionality = require('./functionality');
 
+// this function add events for the keyboard when the key is up
 exports.loadKeyboard = function() {
     document.addEventListener("keyup", (evt) => {
         switch (evt.key) {

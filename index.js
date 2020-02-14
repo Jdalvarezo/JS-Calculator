@@ -1,6 +1,5 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
-const path = require('path')
 
 function createWindow () {
   // Create the browser window.
@@ -16,7 +15,8 @@ function createWindow () {
   mainWindow.loadFile('index.html')
   // remove application menu
   mainWindow.setMenu(null)
-  mainWindow.resizable = false;
+  // disable application resize
+  mainWindow.resizable = false
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
