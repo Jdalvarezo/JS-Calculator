@@ -21,6 +21,7 @@ input[type="text"] {
     background-color: #161616;
     text-align: right;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 #operands {
@@ -41,7 +42,7 @@ button {
     color: #8F8F8F;
     background-color: #232323;
     border: none;
-    font-size: 18px;
+    font-size: 21px;
     cursor: pointer;
     transition: 0.25s;
 }
