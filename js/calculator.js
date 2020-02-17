@@ -32,9 +32,11 @@ window.addEventListener("load", function() {
     document.getElementById('btnBackspace').addEventListener("click", function() { functionality.backspace(); });
     document.getElementById('btnEqual').addEventListener("click", function() { functionality.equal(); });
 
-    // call function through the keyboard module that load all keyboard events
+    // call the function through the keyboard module that load all keyboard events
     keyboard.loadKeyboard();
-    // call function through the functionality module that clear the input elements in the application
+    // call the function through the functionality module that clear the input elements in the application
     functionality.clean();
+    // call the function that manage the keys actions
+    functionality.keysRestrictions();
     
 });

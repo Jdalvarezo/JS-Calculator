@@ -2,6 +2,73 @@
 var operandsBox = document.getElementById('operands');
 var resultBox = document.getElementById('result');
 
+// function that manage the keys actions
+exports.keysRestrictions = function() {
+    operandsBox.addEventListener('keyup', function(evt) {
+        if(/^([a-z])*$/.test(evt.key)) {
+            var str = operandsBox.value;
+            operandsBox.value = str.substring(0, str.length-1);
+        }
+        if(/^([A-Z])*$/.test(evt.key)) {
+            var str = operandsBox.value;
+            operandsBox.value = str.substring(0, str.length-1);
+        }
+        switch(evt.key){
+            case "+":
+                var str = operandsBox.value;
+                if(operandsBox.value == "+") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "+";
+                }
+                break;
+            case "-":
+                var str = operandsBox.value;
+                if(operandsBox.value == "-") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "-";
+                }
+                break;
+            case "*":
+                var str = operandsBox.value;
+                if(operandsBox.value == "*") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "*";
+                }
+                var exp = operandsBox.value.replace(/\*/gi, '×');
+                operandsBox.value = exp;
+                break;
+            case "/":
+                var str = operandsBox.value;
+                if(operandsBox.value == "/") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "/";
+                }
+                var exp = operandsBox.value.replace(/\//gi, '÷');
+                operandsBox.value = exp;
+                break;
+            case ".":
+                var str = operandsBox.value;
+                if(operandsBox.value == ".") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += ".";
+                }
+                break;
+            default:
+                break;
+        }
+    });
+};
+
 // function that clean all application's input elements
 exports.clean = function() {
     operandsBox.value = "";
@@ -25,6 +92,55 @@ exports.insert = function(num) {
         resultBox.value = 0;
     } else {
         operandsBox.value += num;
+    }
+    switch(num){
+        case "+":
+            var str = operandsBox.value;
+            if(operandsBox.value == "+") { operandsBox.value = str.substring(0, str.length-1); }
+            if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                operandsBox.value = str.substring(0, str.length-1);
+                operandsBox.value = str.substring(0, str.length-2);
+                operandsBox.value += "+";
+            }
+            break;
+        case "-":
+            var str = operandsBox.value;
+            if(operandsBox.value == "-") { operandsBox.value = str.substring(0, str.length-1); }
+            if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                operandsBox.value = str.substring(0, str.length-1);
+                operandsBox.value = str.substring(0, str.length-2);
+                operandsBox.value += "-";
+            }
+            break;
+        case "×":
+            var str = operandsBox.value;
+            if(operandsBox.value == "×") { operandsBox.value = str.substring(0, str.length-1); }
+            if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                operandsBox.value = str.substring(0, str.length-1);
+                operandsBox.value = str.substring(0, str.length-2);
+                operandsBox.value += "×";
+            }
+            break;
+        case "÷":
+            var str = operandsBox.value;
+            if(operandsBox.value == "÷") { operandsBox.value = str.substring(0, str.length-1); }
+            if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                operandsBox.value = str.substring(0, str.length-1);
+                operandsBox.value = str.substring(0, str.length-2);
+                operandsBox.value += "÷";
+            }
+            break;
+        case ".":
+            var str = operandsBox.value;
+            if(operandsBox.value == ".") { operandsBox.value = str.substring(0, str.length-1); }
+            if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                operandsBox.value = str.substring(0, str.length-1);
+                operandsBox.value = str.substring(0, str.length-2);
+                operandsBox.value += ".";
+            }
+            break;
+        default:
+            break;
     }
     this.sendFocus();
 };
