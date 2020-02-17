@@ -20,6 +20,9 @@ exports.backspace = function() {
 exports.insert = function(num) {
     if (operandsBox.value == "") {
         operandsBox.value = num;
+    } else if(operandsBox.value != "" && resultBox.value != 0 && (num == "+" || num == "-" || num == "×" || num == "÷")) {
+        operandsBox.value = resultBox.value + num
+        resultBox.value = 0;
     } else {
         operandsBox.value += num;
     }
@@ -28,17 +31,28 @@ exports.insert = function(num) {
 
 // calculate and show the result of the operations
 exports.equal = function() {
-    // replace the ascii values × and ÷ per * and / for can be calculate correctly by the application
-    var exp = operandsBox.value.replace(/×|÷/gi, function(match) { return (match == '×') ? '*' : '/'; });
-    try {
-        resultBox.value = eval(exp);
-    } catch(error) {
-        resultBox.value = error;
+    // verify if there are operations to do
+    if(operandsBox.value != "") {
+        // replace the ascii values × and ÷ per * and / for can be calculate correctly by the application
+        var exp = operandsBox.value.replace(/×|÷/gi, function(match) { return (match == '×') ? '*' : '/'; });
+        try {
+            var result = eval(exp);
+            if(result % 1 === 0) {
+                resultBox.value = result;
+            } else {
+                resultBox.value = result.toFixed(6);
+            }
+        } catch(error) {
+            resultBox.value = error;
+        }
+        this.sendFocus();
+    } else {
+        resultBox.value = 0;
+        this.sendFocus();
     }
-    this.sendFocus();
 };
 
 // move the focus at other area
 exports.sendFocus = function() {
-    document.getElementById('btnEqual').focus();
+    document.getElementById('operands').focus();
 };

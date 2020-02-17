@@ -1,6 +1,6 @@
 {
   "name": "js-calculator",
-  "version": "1.0.0",
+  "version": "1.2.2",
   "description": "Basic calculator develop with web technologies using Electron JS",
   "main": "index.js",
   "scripts": {
