@@ -3,6 +3,8 @@ This project is a basic calculator maked with web technologies, using Electron J
 In this application you can do all basic operation like a common calculator sum `+`, subtract `-`, multiplication `×` and division `÷`.
 Also you can do some intermidium operation using parenthesis `( )`.
 
+![demo.jpg](https://github.com/Jdalvarezo/JS-Calculator/blob/master/demo.jpg)
+
 ## Builded with 🛠️
 
 * [Electron JS](https://www.electronjs.org/) - The cross-platform desktop apps framework used
