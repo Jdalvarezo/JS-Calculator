@@ -5,11 +5,7 @@ const functionality = require('./functionality');
 exports.loadKeyboard = function() {
     var operandsBox = document.getElementById('operands');
     operandsBox.addEventListener('keyup', function(evt) {
-        if(/^([a-z])*$/.test(evt.key)) {
-            var str = operandsBox.value;
-            operandsBox.value = str.substring(0, str.length-1);
-        }
-        if(/^([A-Z])*$/.test(evt.key)) {
+        if(/^([a-z])*$/.test(evt.key) || /^([A-Z])*$/.test(evt.key)) {
             var str = operandsBox.value;
             operandsBox.value = str.substring(0, str.length-1);
         }
