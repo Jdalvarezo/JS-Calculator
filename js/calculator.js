@@ -13,13 +13,13 @@ window.addEventListener("load", function() {
     }
 
     // arrays that will utilized to add actions in each different option
-    var numeros = ["btn0", "btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9"];
+    var numbers = ["btn0", "btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8", "btn9"];
     var operations = ["btnAdd", "btnSubtract", "btnMultiply", "btnDivide", "btnDot"];
     var symbols = ["+", "-", "×", "÷", "."];
 
     // use the add event function to add a custom event for each number option (0-9)
-    for(var i=0; i<numeros.length; i++) {
-        addClickEvent(numeros[i], i);
+    for(var i=0; i<numbers.length; i++) {
+        addClickEvent(numbers[i], i);
     }
 
     // use the add event function to add a custom event for each operation option (+, -, x, /, .)
@@ -36,7 +36,5 @@ window.addEventListener("load", function() {
     keyboard.loadKeyboard();
     // call the function through the functionality module that clear the input elements in the application
     functionality.clean();
-    // call the function that manage the keys actions
-    functionality.keysRestrictions();
     
 });

@@ -1,68 +1,71 @@
 // add the functionality module for can use its functions
 const functionality = require('./functionality');
 
-// this function add events for the keyboard when the key is up
+// function that manage the keys actions
 exports.loadKeyboard = function() {
-    document.addEventListener("keyup", function(evt) {
-        // var e = document.getElementById('operands');
-        switch (evt.key) {
-            // case "0":
-            //     if(!e.hasFocus()) { functionality.insert(0); }
-            //     break;
-            // case "1":
-            //     if(!e.hasFocus()) { functionality.insert(1); }
-            //     break;
-            // case "2":
-            //     if(!e.hasFocus()) { functionality.insert(2); }
-            //     break;
-            // case "3":
-            //     if(!e.hasFocus()) { functionality.insert(3); }
-            //     break;
-            // case "4":
-            //     if(!e.hasFocus()) { functionality.insert(4); }
-            //     break;
-            // case "5":
-            //     if(!e.hasFocus()) { functionality.insert(5); }
-            //     break;
-            // case "6":
-            //     if(!e.hasFocus()) { functionality.insert(6); }
-            //     break;
-            // case "7":
-            //     if(!e.hasFocus()) { functionality.insert(7); }
-            //     break;
-            // case "8":
-            //     if(!e.hasFocus()) { functionality.insert(8); }
-            //     break;
-            // case "9":
-            //     if(!e.hasFocus()) { functionality.insert(9); }
-            //     break;
-            // case "+":
-            //     if(!e.hasFocus()) { functionality.insert("+"); }
-            //     break;
-            // case "-":
-            //     if(!e.hasFocus()) { functionality.insert("-"); }
-            //     break;
-            // case "*":
-            //     if(!e.hasFocus()) { functionality.insert("×"); }
-            //     break;
-            // case "/":
-            //     if(!e.hasFocus()) { functionality.insert("÷"); }
-            //     break;
-            // case ".":
-            //     if(!e.hasFocus()) { functionality.insert("."); }
-            //     break;
-            // case "(":
-            //     if(!e.hasFocus()) { functionality.insert("("); }
-            //     break;
-            // case ")":
-            //     if(!e.hasFocus()) { functionality.insert(")"); }
-            //     break;
+    var operandsBox = document.getElementById('operands');
+    operandsBox.addEventListener('keyup', function(evt) {
+        if(/^([a-z])*$/.test(evt.key)) {
+            var str = operandsBox.value;
+            operandsBox.value = str.substring(0, str.length-1);
+        }
+        if(/^([A-Z])*$/.test(evt.key)) {
+            var str = operandsBox.value;
+            operandsBox.value = str.substring(0, str.length-1);
+        }
+        switch(evt.key){
+            case "+":
+                var str = operandsBox.value;
+                if(operandsBox.value == "+") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "+";
+                }
+                break;
+            case "-":
+                var str = operandsBox.value;
+                if(operandsBox.value == "-") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "-";
+                }
+                break;
+            case "*":
+                var str = operandsBox.value;
+                if(operandsBox.value == "*") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "*";
+                }
+                var exp = operandsBox.value.replace(/\*/gi, '×');
+                operandsBox.value = exp;
+                break;
+            case "/":
+                var str = operandsBox.value;
+                if(operandsBox.value == "/") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += "/";
+                }
+                var exp = operandsBox.value.replace(/\//gi, '÷');
+                operandsBox.value = exp;
+                break;
+            case ".":
+                var str = operandsBox.value;
+                if(operandsBox.value == ".") { operandsBox.value = str.substring(0, str.length-1); }
+                if(str[str.length-2] == "+" || str[str.length-2] == "-" || str[str.length-2] == "×" || str[str.length-2] == "÷" || str[str.length-2] == ".") {
+                    operandsBox.value = str.substring(0, str.length-1);
+                    operandsBox.value = str.substring(0, str.length-2);
+                    operandsBox.value += ".";
+                }
+                break;
             case "Escape":
                 functionality.clean();
                 break;
-            // case "Backspace":
-            //     if(!e.hasFocus()) { functionality.backspace(); }
-            //     break;
             case "Enter":
                 functionality.equal();
                 break;
