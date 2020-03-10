@@ -86,11 +86,7 @@ exports.equal = function() {
         var exp = operandsBox.value.replace(/×|÷/gi, function(match) { return (match == '×') ? '*' : '/'; });
         try {
             var result = eval(exp);
-            if(result % 1 === 0) {
-                resultBox.value = result;
-            } else {
-                resultBox.value = result.toFixed(6);
-            }
+            resultBox.value = result;
         } catch(error) {
             resultBox.value = error;
         }
