@@ -1,8 +1,8 @@
 {
   "name": "js-calculator",
-  "version": "1.3.2",
-  "description": "Basic calculator develop with web technologies using Electron JS",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "A desktop basic calculator developed with web technologies using the framework Electron JS",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -10,12 +10,12 @@
   },
   "repository": "https://github.com/Jdalvarezo/JS-Calculator",
   "keywords": [
-    "calculator",
+  	"desktop application",
     "basic calculator",
-    "js calculator",
-    "electron calculator"
+    "web technologies",
+    "electron js"
   ],
-  "author": "Jhonatan Alvarez",
+  "author": "Jhonatan David Alvarez Ordosgoitia",
   "license": "ISC",
   "build": {
     "appId": "js-calculator",

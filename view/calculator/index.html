@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -11,9 +12,11 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <input type="text" id="operands">
+    <input type="text" id="operands" disabled>
     <input type="text" id="result" disabled>
+    
     <table>
         <tr>
             <td><button class="opBtns" id="btnClean">C</button></td>
@@ -44,7 +47,9 @@
             <td><button id="btnDot">.</button></td>
         </tr>
     </table>
+    
     <!-- You can also require other files to run in this process -->
-    <script src="js/calculator.js"></script>
+    <script src="../../controller/calculatorCtrl.js"></script>
 </body>
+
 </html>
