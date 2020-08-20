@@ -39,15 +39,18 @@ class CalculatorCtrl {
             this.addClickEvent(operations[i], symbols[i])
         }
 
-        // Add events to specifics options (clean, backspace and equal)
+        // Add events to specifics options (clean, backspace, equal and info)
         document.getElementById('btnClean').addEventListener("click", () => { this.calculator.clean() })
         document.getElementById('btnBackspace').addEventListener("click", () => { this.calculator.backspace() })
         document.getElementById('btnEqual').addEventListener("click", () => { this.calculator.equal() })
+        let descript = "JS Calculator v2.0.0\n2020 - Developed by Jhonatan Alvarez\n\nProject created using Electron JS\n\nDeveloper profile: https://github.com/Jdalvarezo/\nProject link: https://github.com/Jdalvarezo/JS-Calculator"
+        document.getElementById('info').addEventListener("click", () => { alert(descript) })
 
-        // Manager actions keys
-        // document.addEventListener('keyup', (evt) => {
-        //     this.calculator.insert(evt.key)
-        // })
+        // Manager actions by keys
+        document.addEventListener('keyup', (evt) => {
+            this.calculator.insertByKeyboard(evt.key)
+            // console.log(evt.key)
+        })
 
         // Call the function through the calculator module that clear the input elements in the application
         this.calculator.clean()

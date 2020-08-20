@@ -10,7 +10,7 @@
   },
   "repository": "https://github.com/Jdalvarezo/JS-Calculator",
   "keywords": [
-  	"desktop application",
+    "desktop application",
     "basic calculator",
     "web technologies",
     "electron js"
@@ -46,7 +46,7 @@
     }
   },
   "devDependencies": {
-    "electron": "^8.0.0",
-    "electron-builder": "^22.3.2"
+    "electron": "^9.1.0",
+    "electron-builder": "^22.7.0"
   }
 }

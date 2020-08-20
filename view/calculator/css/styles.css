@@ -51,6 +51,10 @@ button {
     transition: 0.25s;
 }
 
+button:focus {
+    outline: none;
+}
+
 button:hover {
     background-color: rgba(143, 143, 143, 0.2);
     transition: 0.25s;
@@ -66,6 +70,10 @@ button:hover {
     color: #433104;
 }
 
+#btnEqual:focus {
+    outline: none;
+}
+
 #btnEqual:hover {
     background-color: #946402;
     color: #FFC60C;
@@ -76,3 +84,18 @@ button:hover {
     background-color: #1F1F1F;
 }
 
+#info {
+    font-size: larger;
+    color: #EDEDED;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 20000;
+    transition: 0.25s;
+}
+
+#info:hover {
+    color: #B6B6B6;
+    transition: 0.25s;
+}
