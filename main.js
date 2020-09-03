@@ -6,6 +6,7 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 382,
     height: 676,
+    show: false,
     webPreferences: {
       nodeIntegration: true
     }
@@ -20,6 +21,11 @@ function createWindow() {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+
+  // Displays the window once all components have loaded
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show()
+  })
 }
 
 // This method will be called when Electron has finished

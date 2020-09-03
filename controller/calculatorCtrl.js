@@ -1,5 +1,7 @@
-// Add calculator module
+// Add calculator and dialog modules
 const Calculator = require('../../model/calculator')
+const { remote } = require('electron')
+const dialog = remote.dialog
 
 class CalculatorCtrl {
 
@@ -43,8 +45,19 @@ class CalculatorCtrl {
         document.getElementById('btnClean').addEventListener("click", () => { this.calculator.clean() })
         document.getElementById('btnBackspace').addEventListener("click", () => { this.calculator.backspace() })
         document.getElementById('btnEqual').addEventListener("click", () => { this.calculator.equal() })
-        let descript = "JS Calculator v2.0.0\n2020 - Developed by Jhonatan Alvarez\n\nProject created using Electron JS\n\nDeveloper profile: https://github.com/Jdalvarezo/\nProject link: https://github.com/Jdalvarezo/JS-Calculator"
-        document.getElementById('info').addEventListener("click", () => { alert(descript) })
+        document.getElementById('info').addEventListener("click", () => {
+            let descript = 'Project created using Electron JS\n\nDeveloper profile: https://github.com/Jdalvarezo/\nProject link: https://github.com/Jdalvarezo/JS-Calculator\n\n2020 - Developed by Jhonatan Alvarez'
+            dialog.showMessageBox(null, {
+                type: 'info',
+                buttons: ['&Ok'],
+                defaultId: 0,
+                title: 'About',
+                message: 'JS Calculator v2.0.2',
+                detail: descript,
+                noLink: true,
+                normalizeAccessKeys: true
+            })
+        })
 
         // Manager actions by keys
         document.addEventListener('keyup', (evt) => {
