@@ -52,7 +52,7 @@ class CalculatorCtrl {
                 buttons: ['&Ok'],
                 defaultId: 0,
                 title: 'About',
-                message: 'JS Calculator v2.0.2',
+                message: 'JS Calculator v2.0.3',
                 detail: descript,
                 noLink: true,
                 normalizeAccessKeys: true
